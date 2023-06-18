@@ -1,1 +1,1 @@
-web: gunicorn Terminal_site:app
+web: gunicorn terminal_site:app
