@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/terminal.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icone.png') }}">
+    <meta charset="UTF-8">
+    <title>prompt</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        const input = $("#input")
+        input.on("keydown", function(e) {
+          if (e.code == "Enter") {
+            $("#enviar").click()
+            console.log("bomdia")
+          }
+        })
+    </script>
+</head>
+<body>
+
+<textarea id="terminal" readonly>{{ resultado }}</textarea>
+<form method="POST" action="{{ url_for('terminal') }}">
+    <div id="prompt">
+    <input id="input" autocomplete="off" spellcheck="false" name="eqc" placeholder="{{ conta }}">
+    </div>
+    <button hidden type="submit" id="enviar"></button>
+</form>
+</body>
+</html>
