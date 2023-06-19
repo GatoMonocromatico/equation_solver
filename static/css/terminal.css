@@ -19,23 +19,52 @@ body {
     font-size: 4vh;
     font-family: PxPlus IBM VGA8, 'Courier New', Courier, monospace;
     font-weight: bold;
+    cursor: default;
 }
 
 #input {
+    position: absolute;
+    margin-left: 6vh;
     padding-top: 2vh;
     padding-bottom: 2vh;
     padding-left: 10px;
     outline: none;
-    width: 100%;
+    width: calc(100% - 8vh);
     height: 5vh;
     border: none;
-    border-top: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     color: rgb(25, 190, 0);
-    font-size: 4vh;
+    font-size: 6vh;
     font-family: PxPlus IBM VGA8, 'Courier New', Courier, monospace;
     font-weight: bold;
     background-color: transparent;
+}
+
+#prompt::before {
+    position: absolute;
+    margin-top: 2vh;
+    height: 3vh;
+    width: 3vh;
+    background-color: transparent;
+    content: "";
+    display: inline-block;
+    transform: rotate(45deg);
+    border-top: 1.25vh solid rgb(105, 203, 0);
+    border-right: 1.25vh solid  rgb(105, 203, 0);
+    animation: pisca 1150ms ease-in infinite;
+}
+
+::-webkit-input-placeholder {
+    color: rgb(19, 146, 0);
+}
+
+@keyframes pisca {
+    0% {
+        border-top: 1.25vh solid rgb(105, 203, 0);
+        border-right: 1.25vh solid  rgb(105, 203, 0);
+    }
+    100% {
+        border-top: 1.25vh solid transparent;
+        border-right: 1.25vh solid  transparent;
+    }
 }
